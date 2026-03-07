@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      `https://api.airtable.com/v0/app2kgr3fGCVmiNrB/Table%201`,
+      'https://api.airtable.com/v0/app2kgr3fGCVmiNrB/Table%201',
       {
         method: 'POST',
         headers: {
