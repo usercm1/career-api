@@ -36,7 +36,7 @@ export default async function handler(req, res) {
             Phone: phone || '',
             Position: position,
             'Cover Letter': coverLetter || '',
-            'Submitted At': new Date().toISOString(),
+            'Submitted At': new Date().toISOString().split('T')[0],
             Status: 'New',
             City: city || '',
             Gender: gender || '',
