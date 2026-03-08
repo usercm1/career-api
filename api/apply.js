@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, email, phone, position, coverLetter } = req.body;
+  const { name, email, phone, city, gender, experience, position, coverLetter } = req.body;
 
   // Basic validation
   if (!name || !email || !position) {
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
 
   try {
     const response = await fetch(
-      'https://api.airtable.com/v0/app2kgr3fGCVmiNrB/Table%201',
+      `https://api.airtable.com/v0/app2kgr3fGCVmiNrB/Table%201`,
       {
         method: 'POST',
         headers: {
@@ -38,6 +38,9 @@ export default async function handler(req, res) {
             'Cover Letter': coverLetter || '',
             'Submitted At': new Date().toISOString(),
             Status: 'New',
+            City: city || '',
+            Gender: gender || '',
+            Experience: experience || '',
           },
         }),
       }
